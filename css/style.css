@@ -1,0 +1,224 @@
+/* General container styling with a vertical layout */
+.content {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+}
+
+/* Styles for the main header*/
+.mainHeader {
+    /* Keeps header fixed at the top */
+    position: sticky; 
+    top: 0; 
+    width: 100%; 
+    z-index: 1000; /* Ensures it appears above other elements */
+
+
+    border-radius: 30px;
+    padding: 20px; 
+
+    /* changing text and background color */
+    background-color: #143763; 
+    color: #ffffff;
+    text-align: center; 
+}
+
+/* Styles for the list container within the page layout */
+#meetList {
+    /* Centers list items vertically */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+}
+
+/* Header styling with centered text and background color */
+h2 {
+    text-align: center;
+    color: white;
+    background-color: #143763;
+    width: 100%;
+}
+
+
+/* Table IDs with consistent width and padding */
+#meet-table, #photo-table #women-table, #men-table, #athlete-table {
+    width: 100%; 
+    padding: 10px; 
+    
+}
+
+/* Layout for scrollable containers, flexible width, and wrapping */
+#MeetScroll, #binaryRoster, #photos, #athlete-results {
+    width: 100%;
+    max-height: 75vh; /* Limits container height */
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap onto multiple lines */
+    overflow-y: scroll; /* Adds vertical scrolling */
+    justify-content: space-evenly; /* Even spacing between items */
+}
+
+/* Table styling*/
+table {
+    border-collapse: collapse; /* Removes extra spacing between cells */
+    background-color: #fff; /* White background */
+    border-radius: 10px; /* Rounds table edges */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Shared cell and header styling for padding, borders, and color */
+th, td {
+    padding: 10px; 
+    text-align: center; 
+    border-bottom: 1px solid #ddd; 
+}
+
+/* Table Header cell styling*/
+th {
+    background-color: #2565b3; /* Blue background */
+    color: #fff; /* White text */
+    border-radius: 15px 15px 0 0; /* Rounds top corners */
+    font-weight: bold;
+}
+
+/* Alternating row color for readability */
+tr:nth-child(even) {
+    background-color: #9bbeea39; 
+}
+
+/* Link and cell styling*/
+a, td {
+    color: #2565b3; /* Blue text color */
+    text-decoration: none; /* No underline for links */
+    font-weight: bold; /* Bold font */
+    transition: font-size 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth scaling transition*/
+}
+
+/* Link styling on hover and focus */
+a:hover, a:focus, td:focus {
+    color: #00274c; /* Dark blue text color  */
+    font-size: 1.2em; /* Slightly increases size */
+    border: 2px solid #00274c; /* Adds border */
+}
+
+/* Optional focus outline and background color change */
+binaryRoster:focus {
+    outline: 2px solid #2565b3; 
+    background-color: #676c71; 
+}
+
+/* Button styling  */
+#homeButton {
+    margin-left: auto; /* Aligns button to the right */
+    border-radius: 15px; /* Rounds corners */
+    padding: 10px; /* Space inside button */
+
+    background-color: white; /* Default background */
+
+    color: black; /* Default text color */
+    cursor: pointer; /* Pointer cursor on hover */
+
+    transition: background-color 0.5s ease-in-out,
+        color 0.3s ease-in-out,
+        width 0.5s ease-in-out,
+        height 0.5s ease-in-out; /*  color and size transition */
+}
+
+/* Button styling on hover */
+#homeButton:hover, #homeButton:focus {
+    background-color: #132f82; /* Dark blue background */
+    color: white; /* White text color */
+    /* Increases width and height */
+    width: 200px; 
+    height: 200px; 
+}
+
+/* Container styling for athlete results */
+#athlete-results {
+    width: 100%;
+    border-collapse: collapse; /* Removes space between cells */
+}
+
+
+
+/* List container styling with no wrapping */
+#meetList {
+    display: flex;
+    flex-direction: column;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+    gap: 10px; /* Space between the grid items */
+    padding: 10px; /* Optional padding around the grid */
+}
+/* Image size adjustments for photoList class */
+
+.photoList {
+    
+    width: 100%; /* Makes each image responsive within its grid cell */
+    border-radius: 10px; /* Optional: rounds image corners */
+    object-fit: cover; /* Ensures image covers the grid cell without distortion */
+}
+
+
+
+
+/* Dark mode adjustments*/
+@media (prefers-color-scheme: dark) {
+    .bodyClass {
+        background-color: black; /* Sets background to black */
+    }
+    .mainHeader, h2, th {
+        background-color: #225a9e; /* Darker blue for headers */
+    }
+    p, h3 {
+        color: white; /* White text for paragraphs and headers */
+    }
+    table {
+        background-color: #000000; /* Dark background for tables */
+    }
+    td {
+        color: black; /* Black text in table cells */
+    }
+    #meet-table, #photo-table #women-table, #men-table, #athlete-table {
+        background-color: black; /* Black background for tables*/
+    }
+    a, td {
+        color: white; /* White text for links and cells */
+    }
+    #homeButton {
+        background-color: black;
+        color: white; /* White text color for button */
+    }
+    a:hover, a:focus, td:focus {
+        color: white;
+        font-size: 1.2em;
+        border: 2px solid white; /* White border on hover */
+    }
+}
+/* Reduced motion adjustments */
+@media (prefers-reduced-motion: reduce) {
+    #homeButton,
+    a,
+    td {
+        transition: none; /* Disables all transitions */
+    }
+
+    #homeButton:hover,
+    a:hover,
+    a:focus,
+    td:hover,
+    td:focus{
+        transition: none; /* Disables hover/focus transitions */
+        font-size: inherit; /* Resets font size */
+    }
+
+    a:hover, a:focus{ 
+        border: none; /* Removes border on hover */
+        text-decoration: underline;
+
+    }
+}
+
+
